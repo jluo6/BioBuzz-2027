@@ -19,6 +19,8 @@ import org.firstinspires.ftc.teamcode.SubSystems.CameraSystem;
 import org.firstinspires.ftc.teamcode.SubSystems.LED;
 
 
+//git commit -am "commit name"
+
 @Disabled
 @TeleOp(name = "Test",group = "TeleOp")
 
