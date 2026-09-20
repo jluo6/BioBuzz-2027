@@ -21,6 +21,7 @@ import org.firstinspires.ftc.teamcode.SubSystems.LED;
 
 //git commit -am "commit name"
 //git push origin main
+//git pull origin main
 
 @Disabled
 @TeleOp(name = "Test",group = "TeleOp")
