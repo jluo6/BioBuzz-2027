@@ -4,9 +4,11 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.mechanisms.mDriveMotors;
 
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 
 //git commit -am "commit name"
@@ -21,6 +23,8 @@ public class test1 extends OpMode {
 
     // where your variables and objects declaration goes
     private DcMotor intake;
+    private CRServo leftintake;
+    private CRServo rightintake;
 
     private enum IntakeStatus {
         ON,
@@ -32,7 +36,12 @@ public class test1 extends OpMode {
     @Override
     public void init() {
         intake = hardwareMap.get(DcMotor.class, "intake");
+        leftintake = hardwareMap.get(CRServo.class, "left_intake");
+        rightintake = hardwareMap.get(CRServo.class, "right_intake");
+
         intake.setPower(0);
+        leftintake.setPower(0);
+        rightintake.setPower(0);
 
         drive.init(hardwareMap);
 
@@ -118,12 +127,16 @@ public class test1 extends OpMode {
                     intake.setDirection(DcMotorSimple.Direction.FORWARD);
                     intakeStatus = IntakeStatus.OFF;
                     intake.setPower(0);
+                    leftintake.setPower(0);
+                    rightintake.setPower(0);
                     break;
 
                 case OFF:
                     intake.setDirection(DcMotorSimple.Direction.REVERSE);
                     intakeStatus = IntakeStatus.ON;
                     intake.setPower(1);
+                    leftintake.setPower(1);
+                    rightintake.setPower(1);
                     break;
             }
         }
